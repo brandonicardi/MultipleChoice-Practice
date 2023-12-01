@@ -1,7 +1,7 @@
 const preguntas = [
   {
     pregunta:
-      "¿Qué tarea NO realiza organizaciones y métodos? Analisis de proveedores, ordenamiento de oficinas, redaccion de manuales, diseño de formularios",
+      "¿Qué tarea NO realiza organizaciones y métodos?",
     opciones: [
       "Análisis de proveedores",
       "Ordenamiento de oficinas",
