@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Choice Random</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="toggle-mode-container">
+            <!-- Botón para cambiar entre modos -->
+            <button id="modoOscuroBtn" class="btn btn-secondary btn-mode">MODO OSCURO</button>
+        </div>
+
+        <div id="quiz-container" class="card">
+            <!-- Pregunta actual se agregará aquí mediante JavaScript -->
+        </div>
+
+        <div id="btn-container"></div>
+
+        <!-- Contenedor para mostrar preguntas incorrectas después de calificar -->
+        <div id="incorrectas-container" style="display: none;">
+            <h4>Preguntas incorrectas:</h4>
+            <div id="incorrectas-list"></div>
+        </div>
+
+        <button id="submit-btn" class="btn btn-primary">Calificar</button>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="preguntas.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

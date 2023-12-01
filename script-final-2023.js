@@ -1,4 +1,5 @@
 const body = document.body;
+const modoOscuroBtn = document.getElementById("modoOscuroBtn");
 
 modoOscuroBtn.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
@@ -25,16 +26,16 @@ submitButton.addEventListener("click", () => {
     mostrarCalificacion();
 });
 
-let preguntasAleatorias = [];
+let preguntas = preguntasFinal; // Utiliza las preguntas finales en lugar de aleatorias
 let preguntaActual = 0;
 let respuestasCorrectas = 0;
 
-function mezclarPreguntas() {
-    preguntasAleatorias = preguntas.sort(() => Math.random() - 0.5).slice(0, 25);
+function mostrarPreguntas() {
+    mostrarPregunta(preguntaActual);
 }
 
 function mostrarPregunta(indice) {
-    const pregunta = preguntasAleatorias[indice];
+    const pregunta = preguntas[indice];
     const opcionesHTML = pregunta.opciones
         .map(
             (opcion, i) =>
@@ -67,7 +68,7 @@ function mostrarPregunta(indice) {
     siguienteBtn.className = "btn btn-primary mt-3";
     siguienteBtn.onclick = () => {
         calificarPregunta();
-        if (preguntaActual < preguntasAleatorias.length - 1) {
+        if (preguntaActual < preguntas.length - 1) {
             preguntaActual++;
             mostrarPregunta(preguntaActual);
         } else {
@@ -81,19 +82,14 @@ function mostrarPregunta(indice) {
     btnContainer.appendChild(siguienteBtn);
 
     // Mostramos el botón de Calificar solo en la última pregunta
-    submitButton.style.display = preguntaActual === preguntasAleatorias.length - 1 ? "block" : "none";
-    siguienteBtn.style.display = preguntaActual === preguntasAleatorias.length - 1 ? "none" : "block";
-}
-
-function mostrarPreguntas() {
-    mezclarPreguntas();
-    mostrarPregunta(preguntaActual);
+    submitButton.style.display = preguntaActual === preguntas.length - 1 ? "block" : "none";
+    siguienteBtn.style.display = preguntaActual === preguntas.length - 1 ? "none" : "block";
 }
 
 let respuestasSeleccionadas = {};
 function calificarPregunta() {
     const opciones = document.getElementsByName(`pregunta${preguntaActual}`);
-    const respuestaCorrecta = preguntasAleatorias[preguntaActual].respuesta;
+    const respuestaCorrecta = preguntas[preguntaActual].respuesta;
 
     const respuestaSeleccionada = Array.from(opciones)
         .find(opcion => opcion.checked)?.value || 'No respondida';
@@ -112,7 +108,7 @@ function calificarPregunta() {
 
 function mostrarCalificacion() {
     let calificacion = respuestasCorrectas >= 13
-        ? ((respuestasCorrectas - 13) / 12) * 6 + 4
+        ? ((respuestasCorrectas - 17) / 12) * 6 + 4
         : 2;
 
     alert(`Tu calificación es: ${calificacion.toFixed(2)}/10\nRespuestas correctas: ${respuestasCorrectas}`);
@@ -120,7 +116,7 @@ function mostrarCalificacion() {
 }
 
 function mostrarIncorrectas() {
-    const respuestasIncorrectas = preguntasAleatorias
+    const respuestasIncorrectas = preguntas
         .map((pregunta, indice) => ({
             pregunta: pregunta.pregunta,
             respuestaCorrecta: pregunta.respuesta,
