@@ -1,17 +1,70 @@
 body {
-    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#quiz-container {
-    max-width: 600px;
-    margin: auto;
+body.dark-mode {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    border-radius: 8px;
+    margin-top: 50px;
+    transition: background-color 0.3s ease;
 }
 
-button {
+.container.dark-mode {
+    background-color: #343a40;
+}
+
+.card {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.card.dark-mode {
+    background-color: #495057;
+    color: #fff;
+}
+
+#btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#submit-btn {
     display: block;
     margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+}
+
+#incorrectas-container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#incorrectas-container.dark-mode {
+    background-color: #343a40;
+}
+
+.btn-mode {
+    margin-top: 10px;
+}
+
+.toggle-mode-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
